@@ -46,7 +46,7 @@ struct TamagotchiWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Color.white.edgesIgnoringSafeArea(.all).overlay(Group {
+        Color(red: 0.949, green: 0.949, blue: 0.949).edgesIgnoringSafeArea(.all).overlay(Group {
         VStack {
             Text(entry.date, style: .time)
                 .foregroundColor(.black)
