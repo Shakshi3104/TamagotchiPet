@@ -18,6 +18,8 @@
 		CE7962C42515D3560010E582 /* TamagotchiWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7962C32515D3560010E582 /* TamagotchiWidget.swift */; };
 		CE7962C62515D3570010E582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7962C52515D3570010E582 /* Assets.xcassets */; };
 		CE7962CA2515D3570010E582 /* TamagotchiWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE7962BC2515D3560010E582 /* TamagotchiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CEDC23E225173F3600949C29 /* IMG_4276.PNG in Resources */ = {isa = PBXBuildFile; fileRef = CEDC23E025173F3500949C29 /* IMG_4276.PNG */; };
+		CEDC23E325173F3600949C29 /* IMG_4277.PNG in Resources */ = {isa = PBXBuildFile; fileRef = CEDC23E125173F3500949C29 /* IMG_4277.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		CE7962C32515D3560010E582 /* TamagotchiWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiWidget.swift; sourceTree = "<group>"; };
 		CE7962C52515D3570010E582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7962C72515D3570010E582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDC23DC25173E4E00949C29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CEDC23E025173F3500949C29 /* IMG_4276.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4276.PNG; sourceTree = "<group>"; };
+		CEDC23E125173F3500949C29 /* IMG_4277.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4277.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,8 @@
 		CE79629C2515D3380010E582 = {
 			isa = PBXGroup;
 			children = (
+				CEDC23DD25173E9400949C29 /* materials */,
+				CEDC23DC25173E4E00949C29 /* README.md */,
 				CE7962A72515D3380010E582 /* TamagotchiPet */,
 				CE7962C22515D3560010E582 /* TamagotchiWidget */,
 				CE7962BD2515D3560010E582 /* Frameworks */,
@@ -139,6 +146,15 @@
 				CE7962C72515D3570010E582 /* Info.plist */,
 			);
 			path = TamagotchiWidget;
+			sourceTree = "<group>";
+		};
+		CEDC23DD25173E9400949C29 /* materials */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC23E025173F3500949C29 /* IMG_4276.PNG */,
+				CEDC23E125173F3500949C29 /* IMG_4277.PNG */,
+			);
+			path = materials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,8 +237,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDC23E225173F3600949C29 /* IMG_4276.PNG in Resources */,
 				CE7962B02515D3390010E582 /* Preview Assets.xcassets in Resources */,
 				CE7962AD2515D3390010E582 /* Assets.xcassets in Resources */,
+				CEDC23E325173F3600949C29 /* IMG_4277.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
