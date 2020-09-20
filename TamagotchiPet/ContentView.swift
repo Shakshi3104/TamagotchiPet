@@ -30,6 +30,9 @@ struct ContentView: View {
             // たまごっちのプロフィール
             HStack {
                 Image(tamagotchi.imageName).resizable().frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .background(Color.white)
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Spacer()
                 VStack(alignment:.leading) {
                     Text(tamagotchi.name)

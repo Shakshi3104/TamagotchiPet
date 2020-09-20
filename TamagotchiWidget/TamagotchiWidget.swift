@@ -97,12 +97,14 @@ struct TamagotchiWidgetEntryView : View {
                     .foregroundColor(.pink)
                 Text("\(entry.socialMeter)%")
                     .foregroundColor(.pink)
+                    .font(.system(.body, design: .rounded))
             }
             HStack {
                 Image(systemName: "triangle")
                     .foregroundColor(.orange)
                 Text("\(entry.stomachMeter)%")
                     .foregroundColor(.orange)
+                    .font(.system(.body, design: .rounded))
             }
         }
         })
@@ -122,6 +124,7 @@ struct TamagotchiWidget: Widget {
     }
 }
 
+// プレビューに必要
 struct TamagotchiWidget_Previews: PreviewProvider {
     static var previews: some View {
         TamagotchiWidgetEntryView(entry: SimpleEntry(date: Date(), stomachMeter: 100, socialMeter: 100, barometer: TamagotchiBarometer(age: 3, stomachMeter: 5, socialMeter: 5)))
