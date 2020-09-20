@@ -11,7 +11,7 @@ struct ContentView: View {
     @ObservedObject var tamagotchi: Tamagotchi
     
     // バロメータを保存する
-    @AppStorage("Barometer", store: UserDefaults(suiteName: "com.Xer.TamagotchiPet"))
+    @AppStorage("Barometer", store: UserDefaults(suiteName: "group.com.Xer.TamagotchiPet"))
     var tamagotchiBarometer: Data = Data()
     
     init() {
@@ -81,18 +81,18 @@ struct ContentView: View {
             // ボタン
             HStack {
                 Button(action: {
+                    // あそぶ
+                    tamagotchi.fullSocialMeter()
+                }, label: {
+                    Text("あそぶ")
+                })
+                
+                Button(action: {
                     // ごはんをあげる
                     tamagotchi.fullStomachMeter()
                 }, label: {
                     Text("ごはん")
                     
-                })
-                
-                Button(action: {
-                    // あそぶ
-                    tamagotchi.fullSocialMeter()
-                }, label: {
-                    Text("あそぶ")
                 })
             }
         }

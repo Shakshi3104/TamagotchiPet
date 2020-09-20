@@ -12,7 +12,7 @@ struct Provider: TimelineProvider {
     private let meterMax = 100
     
     // バロメータを保存する
-    @AppStorage("Barometer", store: UserDefaults(suiteName: "com.Xer.TamagotchiPet"))
+    @AppStorage("Barometer", store: UserDefaults(suiteName: "group.com.Xer.TamagotchiPet"))
     var tamagotchiBarometer: Data = Data()
     
     func placeholder(in context: Context) -> SimpleEntry {

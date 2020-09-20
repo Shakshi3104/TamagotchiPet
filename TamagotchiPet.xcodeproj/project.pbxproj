@@ -46,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		CE49BD3725170C2400AFE6B5 /* TamagotchiCharactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiCharactor.swift; sourceTree = "<group>"; };
+		CE49BD3E25173C3E00AFE6B5 /* TamagotchiPet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TamagotchiPet.entitlements; sourceTree = "<group>"; };
 		CE7962A52515D3380010E582 /* TamagotchiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7962A82515D3380010E582 /* TamagotchiPetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiPetApp.swift; sourceTree = "<group>"; };
 		CE7962AA2515D3380010E582 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		CE7962A72515D3380010E582 /* TamagotchiPet */ = {
 			isa = PBXGroup;
 			children = (
+				CE49BD3E25173C3E00AFE6B5 /* TamagotchiPet.entitlements */,
 				CE7962A82515D3380010E582 /* TamagotchiPetApp.swift */,
 				CE7962AA2515D3380010E582 /* ContentView.swift */,
 				CE7962AC2515D3390010E582 /* Assets.xcassets */,
@@ -387,6 +389,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TamagotchiPet/TamagotchiPet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TamagotchiPet/Preview Content\"";
 				DEVELOPMENT_TEAM = WHBF4Z49B6;
@@ -410,6 +413,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TamagotchiPet/TamagotchiPet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TamagotchiPet/Preview Content\"";
 				DEVELOPMENT_TEAM = WHBF4Z49B6;
