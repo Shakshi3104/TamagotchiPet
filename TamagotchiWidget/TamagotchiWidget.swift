@@ -11,12 +11,24 @@ import SwiftUI
 struct Provider: TimelineProvider {
     private let meterMax = 100
     
+    // バロメータを保存する
+    @AppStorage("Barometer", store: UserDefaults(suiteName: "com.Xer.TamagotchiPet"))
+    var tamagotchiBarometer: Data = Data()
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), stomachMeter: self.meterMax, socialMeter: self.meterMax)
+        SimpleEntry(date: Date(), stomachMeter: self.meterMax, socialMeter: self.meterMax, barometer: TamagotchiBarometer(age: 3, stomachMeter: 5, socialMeter: 5))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), stomachMeter: self.meterMax, socialMeter: self.meterMax)
+        var entry: SimpleEntry
+        
+        if let decodeData = try? JSONDecoder().decode(TamagotchiBarometer.self, from: tamagotchiBarometer) {
+            entry = SimpleEntry(date: Date(), stomachMeter: self.meterMax, socialMeter: self.meterMax, barometer: decodeData)
+        }
+        else {
+            entry = SimpleEntry(date: Date(), stomachMeter: self.meterMax, socialMeter: self.meterMax, barometer: TamagotchiBarometer(age: 3, stomachMeter: 5, socialMeter: 5))
+        }
+        
         completion(entry)
     }
 
@@ -27,7 +39,32 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, stomachMeter: Int(self.meterMax * (5 - hourOffset) / 5), socialMeter: Int(self.meterMax * (5 - hourOffset) / 5))
+            
+            var entry: SimpleEntry
+            var barometer: TamagotchiBarometer = TamagotchiBarometer(age: 3, stomachMeter: 5, socialMeter: 5)
+            
+            if let decodeData = try? JSONDecoder().decode(TamagotchiBarometer.self, from: tamagotchiBarometer) {
+                
+                do {
+                    barometer = try TamagotchiBarometer(from: decodeData as! Decoder)
+                }
+                catch let error as NSError{
+                            print("Failure to Write File\n\(error)")
+                }
+            }
+            else {
+                return
+            }
+            
+            // バロメータを減らす
+            let social = barometer.reduceSocialMeter()
+            let stomach = barometer.reduceStomachMeter()
+            
+            entry = SimpleEntry(date: entryDate,
+                                stomachMeter: Int(self.meterMax * (social / BAROMETER_MAX)),
+                                socialMeter: Int(self.meterMax * (stomach / BAROMETER_MAX)),
+                                barometer: barometer)
+            
             entries.append(entry)
         }
 
@@ -40,8 +77,10 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let stomachMeter: Int
     let socialMeter: Int
+    let barometer: TamagotchiBarometer
 }
 
+// 実際に表示される画面
 struct TamagotchiWidgetEntryView : View {
     var entry: Provider.Entry
 
@@ -85,7 +124,7 @@ struct TamagotchiWidget: Widget {
 
 struct TamagotchiWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TamagotchiWidgetEntryView(entry: SimpleEntry(date: Date(), stomachMeter: 100, socialMeter: 100))
+        TamagotchiWidgetEntryView(entry: SimpleEntry(date: Date(), stomachMeter: 100, socialMeter: 100, barometer: TamagotchiBarometer(age: 3, stomachMeter: 5, socialMeter: 5)))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
